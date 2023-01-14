@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --responsive-margins: 24rem;
+  --accent-clr: rgb(0, 140, 255);
+}
+
+h1 {
+  @apply text-5xl font-semibold;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+.container {
+  @apply w-full h-max min-w-full [&_>_*]:w-full [&_>_*]:px-[var(--responsive-margins)] [&_>_*:first-child]:pt-12 [&_>_*:last-child]:pb-12;
+}
+
+.hero {
+  @apply w-full h-max px-[var(--responsive-margins)] bg-transparent;
+}
+
+.nav__container {
+  @apply w-80 min-w-[20rem] h-[100dvh] flex flex-col items-start justify-between py-4 px-8 shadow-lg bg-zinc-800;
+}
+
+nav {
+  @apply h-max flex flex-col items-start justify-start gap-2 w-full;
+}
+
+.nav__link {
+  @apply relative px-4 py-2 rounded-md w-full items-center flex flex-row gap-4 hover:bg-white/10 transition-colors;
+}
+
+.nav__link.active {
+  @apply bg-white/10;
+}
+
+.animeinfo__item {
+  @apply flex flex-row justify-between gap-2 items-center py-4 px-6 rounded-lg;
+}
+
+.anime__poster {
+  @apply w-64 h-max object-cover rounded-xl;
+}
+
+.nav__icon {
+  @apply flex flex-row flex-nowrap items-center;
+}
+
+.fa-icon {
+  @apply w-4 h-4;
+}
+
+/* non-tailwind css */
+
+.nav__link.active > .nav__icon::before {
+  content: '';
+  display: flex;
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 20px;
+  border-radius: 100vw;
+  background-color: var(--accent-clr);
+}
+
+:focus {
+  appearance: none;
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
